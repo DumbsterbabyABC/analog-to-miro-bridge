@@ -22,6 +22,18 @@ sig2_pin = machine.Pin(33, machine.Pin.IN) # Datenleitung für U3 (Andere Signal
 # OneWire für den ersten Multiplexer (U2) vorbereiten
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(sig1_pin))
 
+# Funktion zum Prüfen aller Pins
+def check_all_pins():
+    print("Pin-Status Übersicht:")
+    for pin_num in range(0, 40):
+        try:
+            pin = machine.Pin(pin_num, machine.Pin.IN)
+            value = pin.value()
+            print(f"Pin {pin_num}: Wert = {value}")
+        except Exception:
+            pass
+
+# Alle Pins einmal durchchecken (optional, kann bei vielen Pins unübersichtlich sein)
 def set_channel(channel):
     """Stellt die Steuer-Pins S0-S3 auf den gewünschten Kanal (0-15)"""
     s0.value(channel & 0b0001)
@@ -32,6 +44,8 @@ def set_channel(channel):
 
 print("Starte System-Scan für beide Multiplexer...")
 print("=" * 50)
+
+check_all_pins() #  Checkt alle pins auf Verbindung (optional, kann bei vielen Pins unübersichtlich sein)
 
 # --- 2. HAUPTSCHLEIFE ---
 while True:
