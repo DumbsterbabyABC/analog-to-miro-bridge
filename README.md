@@ -33,7 +33,7 @@ Das System besteht aus zwei Hauptkomponenten:
 
 Um dieses Board nachzubauen, benötigst du (für das MVP):
 * 1x ESP32 Mikrocontroller (mit WLAN)
-* Multiplexer (Anzahl abhängig von der Board-Größe, 15 Ports pro Einheit)
+* Multiplexer (Anzahl abhängig von der Board-Größe, 16 Ports pro Einheit)
 * IO-Expander (für die Patch-Kabel-Erkennung)
 * Klinken-Einbaubuchsen & entsprechende Stecker
 * Temperatursensoren (als kostengünstige 64-Bit-ID Träger in den Steckern)
